@@ -1,0 +1,138 @@
+[gd_scene load_steps=20 format=3 uid="uid://drr7ay3bi3l83"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_ek7ym"]
+[ext_resource type="Texture2D" uid="uid://6cey2lyoeksu" path="res://art/race-track.png" id="1_rba6n"]
+[ext_resource type="PackedScene" uid="uid://cfpf7m1b1nyff" path="res://player.tscn" id="2_wqwqq"]
+[ext_resource type="PackedScene" uid="uid://deiaiu16saosk" path="res://hud.tscn" id="3_jhx8p"]
+[ext_resource type="AudioStream" uid="uid://sni0wosygjoy" path="res://art/Abstract Electronic For Drift by Alexi Action (No Copyright Music)  Ghost.mp3" id="3_tv3jp"]
+[ext_resource type="AudioStream" uid="uid://dw0cxbmkxutvo" path="res://art/Cinematic Action Trailer Epic by Infraction [No Copyright Music]  Polygraph.mp3" id="4_kmcoc"]
+[ext_resource type="PackedScene" uid="uid://cqxal5s1f2f26" path="res://opponent.tscn" id="4_ux87g"]
+[ext_resource type="AudioStream" uid="uid://uja5ty01kaqg" path="res://art/Energising Game Workout Sport Krushfunk Phonk by Infraction [No Copyright Music]  Melodykrusher.mp3" id="5_05i77"]
+[ext_resource type="AudioStream" uid="uid://bvxs6lwmdewmy" path="res://art/INTERWORLD - METAMORPHOSIS [Remix]  No Copyright Music.mp3" id="6_nq3lo"]
+[ext_resource type="AudioStream" uid="uid://b8c65p76qgved" path="res://art/Lofi Hip Hop Instrumental, Rap [ FREE NO COPYRIGHT SOUND ] [ Chill Type Beat ] ITALICS - Forgive Me.mp3" id="7_ail1t"]
+[ext_resource type="AudioStream" uid="uid://raag8yn2b6be" path="res://art/Phonk EDM by Infraction, Alexi Action, Dedpled [No Copyright Music]  Kick Me.mp3" id="8_qvd4b"]
+[ext_resource type="AudioStream" uid="uid://c6dcwx8ivvt54" path="res://art/Sad Lofi Trap Type Beat, Chill [ NO COPYRIGHT ] [ FREE HIP HOP MUSIC ] middle child - emotional.mp3" id="9_w5ius"]
+[ext_resource type="AudioStream" uid="uid://cldype13j0imh" path="res://art/Sport Trap Rock by Infraction [No Copyright Music]  Training Day.mp3" id="10_lfjrs"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_el8p1"]
+streams_count = 8
+stream_0/stream = ExtResource("3_tv3jp")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("4_kmcoc")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("5_05i77")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("6_nq3lo")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("7_ail1t")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("8_qvd4b")
+stream_5/weight = 1.0
+stream_6/stream = ExtResource("9_w5ius")
+stream_6/weight = 1.0
+stream_7/stream = ExtResource("10_lfjrs")
+stream_7/weight = 1.0
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_bf7dl"]
+a = Vector2(964, 64)
+b = Vector2(964, 256)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_woulk"]
+a = Vector2(1664, 512)
+b = Vector2(1856, 512)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_kk8vf"]
+a = Vector2(964, 832)
+b = Vector2(964, 1024)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_4466e"]
+a = Vector2(64, 512)
+b = Vector2(256, 512)
+
+[sub_resource type="Curve2D" id="Curve2D_kdcv3"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 112, 344, 0, 0, 0, 0, 128, 120, 0, 0, 0, 0, 640, 104, 0, 0, 0, 0, 1144, 128, 0, 0, 0, 0, 1168, 360, 0, 0, 0, 0, 1128, 600, 0, 0, 0, 0, 640, 624, 0, 0, 0, 0, 128, 592, 0, 0, 0, 0, 112, 344)
+}
+point_count = 9
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_ek7ym")
+
+[node name="HUD" parent="." instance=ExtResource("3_jhx8p")]
+
+[node name="Soundtrack" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = SubResource("AudioStreamRandomizer_el8p1")
+autoplay = true
+
+[node name="RaceTrack" type="StaticBody2D" parent="."]
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="RaceTrack"]
+scale = Vector2(0.666667, 0.666667)
+texture = ExtResource("1_rba6n")
+centered = false
+
+[node name="CollisionInner" type="CollisionPolygon2D" parent="RaceTrack"]
+visible = false
+scale = Vector2(0.667, 0.667)
+build_mode = 1
+polygon = PackedVector2Array(256, 296, 260, 280, 264, 272, 268, 268, 272, 264, 280, 260, 296, 256, 1620, 256, 1628, 260, 1632, 264, 1640, 268, 1656, 280, 1660, 288, 1664, 300, 1664, 764, 1660, 768, 1656, 776, 1652, 788, 1648, 792, 1624, 816, 1620, 820, 1612, 824, 1604, 828, 1600, 832, 300, 832, 288, 824, 284, 820, 280, 816, 276, 812, 272, 804, 268, 800, 264, 788, 260, 784, 256, 776)
+
+[node name="CollisionOuter" type="CollisionPolygon2D" parent="RaceTrack"]
+visible = false
+scale = Vector2(0.667, 0.667)
+build_mode = 1
+polygon = PackedVector2Array(160, 64, 1772, 64, 1772, 68, 1788, 72, 1804, 80, 1812, 84, 1840, 112, 1844, 120, 1852, 136, 1856, 140, 1856, 908, 1852, 908, 1848, 920, 1844, 932, 1832, 956, 1828, 964, 1820, 972, 1816, 976, 1812, 984, 1804, 992, 1796, 996, 1792, 1000, 1788, 1004, 1780, 1008, 1772, 1012, 1760, 1016, 1748, 1020, 1744, 1024, 160, 1024, 156, 1020, 140, 1016, 124, 1008, 116, 1004, 92, 980, 88, 972, 84, 968, 80, 960, 76, 952, 72, 940, 68, 920, 64, 916, 64, 156, 68, 152, 72, 136, 76, 128, 80, 120, 84, 116, 88, 108, 104, 92, 112, 88, 116, 84, 124, 80, 132, 76, 144, 72, 160, 68)
+
+[node name="Player" parent="." instance=ExtResource("2_wqwqq")]
+
+[node name="Opponent" parent="." instance=ExtResource("4_ux87g")]
+
+[node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(138, 394)
+
+[node name="OpponentPosition" type="Marker2D" parent="."]
+position = Vector2(74, 394)
+
+[node name="Checkpoints" type="Node" parent="."]
+
+[node name="Checkpoint1" type="Area2D" parent="Checkpoints"]
+scale = Vector2(0.667, 0.667)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint1"]
+shape = SubResource("SegmentShape2D_bf7dl")
+
+[node name="Checkpoint2" type="Area2D" parent="Checkpoints"]
+scale = Vector2(0.667, 0.667)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint2"]
+shape = SubResource("SegmentShape2D_woulk")
+
+[node name="Checkpoint3" type="Area2D" parent="Checkpoints"]
+scale = Vector2(0.667, 0.667)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/Checkpoint3"]
+shape = SubResource("SegmentShape2D_kk8vf")
+
+[node name="FinishLine" type="Area2D" parent="Checkpoints"]
+scale = Vector2(0.667, 0.667)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/FinishLine"]
+shape = SubResource("SegmentShape2D_4466e")
+
+[node name="OpponentPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_kdcv3")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="OpponentPath"]
+position = Vector2(112, 344)
+rotation = -1.49949
+
+[connection signal="winner" from="." to="HUD" method="_on_main_winner"]
+[connection signal="replay_clicked" from="HUD" to="." method="new_game"]
+[connection signal="start_game" from="HUD" to="." method="new_game"]
+[connection signal="finished" from="Soundtrack" to="." method="_on_soundtrack_finished"]
+[connection signal="body_entered" from="Checkpoints/Checkpoint1" to="." method="_on_checkpoint_1_body_entered"]
+[connection signal="body_entered" from="Checkpoints/Checkpoint2" to="." method="_on_checkpoint_2_body_entered"]
+[connection signal="body_entered" from="Checkpoints/Checkpoint3" to="." method="_on_checkpoint_3_body_entered"]
+[connection signal="body_entered" from="Checkpoints/FinishLine" to="." method="_on_finish_line_body_entered"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://raag8yn2b6be"
+path="res://.godot/imported/Phonk EDM by Infraction, Alexi Action, Dedpled [No Copyright Music]  Kick Me.mp3-e7b20cafad71ace609ea043cdb7a1bee.mp3str"
+
+[deps]
+
+source_file="res://art/Phonk EDM by Infraction, Alexi Action, Dedpled [No Copyright Music]  Kick Me.mp3"
+dest_files=["res://.godot/imported/Phonk EDM by Infraction, Alexi Action, Dedpled [No Copyright Music]  Kick Me.mp3-e7b20cafad71ace609ea043cdb7a1bee.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

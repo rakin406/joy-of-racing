@@ -1,0 +1,234 @@
+[gd_scene load_steps=9 format=3 uid="uid://deiaiu16saosk"]
+
+[ext_resource type="FontFile" uid="uid://dkpa1mwx5tqml" path="res://fonts/m5x7.ttf" id="1_4jrma"]
+[ext_resource type="Script" path="res://hud.gd" id="1_jv7k7"]
+[ext_resource type="Texture2D" uid="uid://0pfuid08nhys" path="res://art/pause-button.png" id="2_w3o62"]
+[ext_resource type="Texture2D" uid="uid://jlqxwtkmmgyg" path="res://art/arrow-button.png" id="4_tpaxf"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_fegoo"]
+action = &"resume_game"
+
+[sub_resource type="Shortcut" id="Shortcut_fx4ui"]
+events = [SubResource("InputEventAction_fegoo")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_l0f8y"]
+action = &"pause_game"
+
+[sub_resource type="Shortcut" id="Shortcut_nubyy"]
+events = [SubResource("InputEventAction_l0f8y")]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_jv7k7")
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.964706, 0.964706, 0.964706, 1)
+
+[node name="TitleMenu" type="CanvasLayer" parent="."]
+process_mode = 3
+
+[node name="GameTitle" type="Label" parent="TitleMenu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -285.5
+offset_top = -310.5
+offset_right = 285.5
+offset_bottom = -215.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.113725, 0.109804, 0.101961, 1)
+theme_override_fonts/font = ExtResource("1_4jrma")
+theme_override_font_sizes/font_size = 120
+text = "JOY OF RACING"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayButton" type="Button" parent="TitleMenu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -110.0
+offset_right = 125.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_4jrma")
+theme_override_font_sizes/font_size = 100
+text = "Play"
+
+[node name="QuitButton" type="Button" parent="TitleMenu"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -125.0
+offset_top = -318.0
+offset_right = 125.0
+offset_bottom = -218.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_4jrma")
+theme_override_font_sizes/font_size = 100
+text = "Quit"
+
+[node name="PauseMenu" type="CanvasLayer" parent="."]
+process_mode = 3
+visible = false
+
+[node name="ResumeButton" type="Button" parent="PauseMenu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -110.0
+offset_right = 125.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_4jrma")
+theme_override_font_sizes/font_size = 100
+shortcut = SubResource("Shortcut_fx4ui")
+text = "Resume"
+
+[node name="MenuButton" type="Button" parent="PauseMenu"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -125.0
+offset_top = -318.0
+offset_right = 125.0
+offset_bottom = -218.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_4jrma")
+theme_override_font_sizes/font_size = 100
+text = "Menu"
+
+[node name="Gameplay" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="PauseButton" type="TextureButton" parent="Gameplay"]
+process_mode = 3
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 74.0
+offset_bottom = 74.0
+scale = Vector2(0.9, 0.9)
+shortcut = SubResource("Shortcut_nubyy")
+texture_normal = ExtResource("2_w3o62")
+texture_pressed = ExtResource("2_w3o62")
+texture_hover = ExtResource("2_w3o62")
+texture_focused = ExtResource("2_w3o62")
+
+[node name="LapLabel" type="Label" parent="Gameplay"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -69.0
+offset_right = -29.0
+offset_bottom = 64.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("1_4jrma")
+theme_override_font_sizes/font_size = 45
+horizontal_alignment = 1
+
+[node name="Message" type="Label" parent="Gameplay"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_4jrma")
+theme_override_font_sizes/font_size = 120
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ReplayButton" type="Button" parent="Gameplay"]
+process_mode = 3
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -125.0
+offset_top = -284.0
+offset_right = 125.0
+offset_bottom = -184.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_4jrma")
+theme_override_font_sizes/font_size = 100
+text = "Replay"
+
+[node name="AccelerateButton" type="TouchScreenButton" parent="Gameplay"]
+process_mode = 3
+modulate = Color(1, 1, 0, 0.784314)
+position = Vector2(77, 400)
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("4_tpaxf")
+texture_pressed = ExtResource("4_tpaxf")
+action = "accelerate"
+visibility_mode = 1
+
+[node name="BrakeButton" type="TouchScreenButton" parent="Gameplay"]
+process_mode = 3
+modulate = Color(1, 1, 0, 0.784314)
+position = Vector2(269, 738)
+rotation = 3.14159
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("4_tpaxf")
+texture_pressed = ExtResource("4_tpaxf")
+action = "brake"
+visibility_mode = 1
+
+[node name="SteerLeftButton" type="TouchScreenButton" parent="Gameplay"]
+process_mode = 3
+modulate = Color(1, 1, 0, 0.784314)
+position = Vector2(914, 642)
+rotation = -1.5708
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("4_tpaxf")
+texture_pressed = ExtResource("4_tpaxf")
+action = "steer_left"
+visibility_mode = 1
+
+[node name="SteerRightButton" type="TouchScreenButton" parent="Gameplay"]
+process_mode = 3
+modulate = Color(1, 1, 0, 0.784314)
+position = Vector2(1252, 451)
+rotation = 1.5708
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("4_tpaxf")
+texture_pressed = ExtResource("4_tpaxf")
+action = "steer_right"
+visibility_mode = 1
+
+[connection signal="pressed" from="TitleMenu/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="TitleMenu/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="PauseMenu/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="PauseMenu/MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="Gameplay/PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="Gameplay/ReplayButton" to="." method="_on_replay_button_pressed"]

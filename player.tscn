@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfpf7m1b1nyff"]
+
+[ext_resource type="Texture2D" uid="uid://c4xyk6txcfmb7" path="res://art/player-car.png" id="1_7sh2r"]
+[ext_resource type="Script" path="res://player.gd" id="1_no1sh"]
+
+[node name="Player" type="CharacterBody2D"]
+process_mode = 1
+rotation = -1.5708
+motion_mode = 1
+slide_on_ceiling = false
+floor_stop_on_slope = false
+platform_on_leave = 2
+platform_floor_layers = 0
+script = ExtResource("1_no1sh")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_7sh2r")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.4, 0.4)
+polygon = PackedVector2Array(40, -63.2, 44, -61.2, 44, -51.2, 48, -49.2, 48, -28, 45.7, -28, 39.6, -23.2, 44, -18.8, 44, 8.8, 48, 10.8, 48, 26, 48.8, 26, 52, 29.2, 52, 50, 49.7, 50, 44, 54.9, 44, 60.8, 40.8, 64, -40.8, 64, -44, 60.8, -44, 55, -52, 49, -52, 28, -49.6, 28, -48, 26.9, -48, 10, -45.6, 10, -44, 8.9, -44, -20, -41.8, -20, -39.8, -22, -42, -22, -42, -24.1, -48, -29.1, -48, -49.2, -44, -51.2, -44, -62, -41.6, -62, -40, -63.1, -40, -64, 40, -64)

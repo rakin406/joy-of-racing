@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c6dcwx8ivvt54"
+path="res://.godot/imported/Sad Lofi Trap Type Beat, Chill [ NO COPYRIGHT ] [ FREE HIP HOP MUSIC ] middle child - emotional.mp3-f218ce9d92979c36e68647c989beea00.mp3str"
+
+[deps]
+
+source_file="res://art/Sad Lofi Trap Type Beat, Chill [ NO COPYRIGHT ] [ FREE HIP HOP MUSIC ] middle child - emotional.mp3"
+dest_files=["res://.godot/imported/Sad Lofi Trap Type Beat, Chill [ NO COPYRIGHT ] [ FREE HIP HOP MUSIC ] middle child - emotional.mp3-f218ce9d92979c36e68647c989beea00.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

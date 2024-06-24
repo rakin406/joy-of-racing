@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cldype13j0imh"
+path="res://.godot/imported/Sport Trap Rock by Infraction [No Copyright Music]  Training Day.mp3-726397b1a2bef39eb6832eff266ce66d.mp3str"
+
+[deps]
+
+source_file="res://art/Sport Trap Rock by Infraction [No Copyright Music]  Training Day.mp3"
+dest_files=["res://.godot/imported/Sport Trap Rock by Infraction [No Copyright Music]  Training Day.mp3-726397b1a2bef39eb6832eff266ce66d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
